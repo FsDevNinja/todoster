@@ -1,22 +1,5 @@
 $(document).ready(function() {
   
-  $('#new-form').submit(function(event) {
-    event.preventDefault();
-    var textbox = $('.new-todo');
-    var payload = {
-      task: {
-        title: textbox.val()
-      }
-    };
-    $.post("/tasks", payload).success(function(data) {
-      
-    });
-  })
-  
-  
-  
-  
-  
   
   // The taskHtml method takes in a JavaScript representation
   // of the task and produces an HTML representation using
@@ -64,4 +47,22 @@ $(document).ready(function() {
     $('.toggle').change(toggleTask);
     
   });
+  
+  $('#new-form').submit(function(event) {
+    event.preventDefault();
+    var textbox = $('.new-todo');
+    var payload = {
+      task: {
+        title: textbox.val()
+      }
+    };
+    $.post("/tasks", payload).success(function(data) {
+      var htmlString = taskHtml(data);
+      var ulTodos = $('.todo-list');
+      ulTodos.append(htmlString);
+      $('.toggle').click(toggleTask);
+    });
+  })
+  
+  
 });
