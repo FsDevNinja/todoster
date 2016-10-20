@@ -1,4 +1,17 @@
 $(document).ready(function() {
+  
+  $('#new-form').submit(function(event) {
+    event.preventDefault();
+    var textbox = $('.new-todo');
+    
+    
+  })
+  
+  
+  
+  
+  
+  
   // The taskHtml method takes in a JavaScript representation
   // of the task and produces an HTML representation using
   // <li> tags
