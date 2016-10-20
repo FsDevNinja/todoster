@@ -3,8 +3,14 @@ $(document).ready(function() {
   $('#new-form').submit(function(event) {
     event.preventDefault();
     var textbox = $('.new-todo');
-    
-    
+    var payload = {
+      task: {
+        title: textbox.val()
+      }
+    };
+    $.post("/tasks", payload).success(function(data) {
+      
+    });
   })
   
   
